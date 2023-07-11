@@ -1,0 +1,102 @@
+- ETL(Extract Transform Load) is the process of pulling information from different sources, transforming it into defined formats and then loading it into the data warehouse.
+- ETL testing is also known as table balancing or product reconciliation
+- ETL testing is a process that verifies that the data coming in from different sources has been extracted completely, transformed correctly and loaded in the format appropriate for the data warehouse
+- ETL testing lets you know whether the data is of high quality or not, identifying duplicate, missing, or incorrect data
+- ETL testing applies to warehouse systems and used for business intelligence or decision-making
+- ETL testing is used:
+    1. after loading data into new data warehouse for first time
+	2. after adding new data source to existing warehouse
+	3. after moving data
+	4. anytime concern with data quality
+- An ETL tester should:
+	1. prepare and plan for testing by developing a testing stategy, test plan and test cases for the process
+	2. analyze source data for data quality throughtout the ETL process
+	3. execute test cases to validate the ETL process
+	4. communicate testing results
+- ETL testing stages:
+	1. Identify business requirements - This is where the data model is designed, business flow is defined and reporting needs based on client expectations. The scope of the project should be clearly defined.
+	2. Validate data sources - perform a data count check and verify that the table and column data types meet specifications of the data model. Keys are created and checked. Duplicate data is removed.
+	3. Design test cases - Design ETL mapping scenarios and define transformation rules. 
+	4. Extract data from source systems - execute ETL tests per business requirement. Identify types of bugs encountered during the testing and make a report
+	5. Apply transformation logic - ensure that the data is transformed to match the schema of the target data warehouse. Ensure that the data type matches mapping document for each column and table
+	6. Load data into target warehouse - perform a ercord count check before and after the data is moved from staging to the data warehouse
+	7. Summary report - this report lets decision makers know details and results of testing process. Report includes of any stage was incomplete and why
+	8. Test closure
+- Types of ETL testing:
+	1. production validation - validates data in production systems and compares it to source data. This guards against failed loads for example
+	2. source to target count testing - verifies that the number of records loaded into the target database matches the expected record count
+	3. source to target data testing - ensures that the projected data is added to the target system without loss and that the data values meet expectations after transforamtion
+	4. metadata testing - performs data type, length, index, and constraint checks of ETL metadata
+	5. performance testing - makes sure that the data is loaded into the data warehouse within expected time frames and that the test server response to multiple users is adequate for performance and scalability
+	6. data transformation testing - runs SQL queries for each row to verify that the data has been correctly transformed according to business rules
+	7. data quality testing - runs syntax tests such as checking for invalid characters, pattern and reference tests such as checking for date,, precision to make sure that the ETL application accepts default values and rejects invalid data
+	8. data integration testing - confirms that the data from all the sources has loaded to the target data warehouse correctly
+ 	9. report testing - reviews data in summary report, verifying the layout and functionality are as expected
+- ETL testing challenges:
+	1. unhealthy data where the data is often messy and full of errors. ETL testing needs accurate and clean data
+	2. transformations of large datasets can be time-consuming and complex 
+	3. changes to data sources impact the accuracy of data quality
+	4. complex data integrations can cause problems
+	5. slow processing caused by massive data volumes can also impact the accuracy
+- ETL testing tools contain rules for extracting and processing data and remove the need for traditional programming methods that are expensive. There are open-source and commercial tools
+- Things that ETL testing tools should have:
+	1. Graphical Interface - used to simplify the design and development of ETL processes
+	2. Automatic code generation - used to speed development and reduce errors
+	3. Built-in data connectors - these can access data stored in commonly used file formats or database
+	4. Content management facilities - enable context switching for ETL development
+	5. Sophisticated debugging tools - allows to track data flows in real time and generate reports on row-by-row behavior
+- Two documents needed while performing ETL testing:
+	1. ETL mapping sheets - contains all the information of source and destination tables including each and every column and their look-up refernce tables. These mapping sheets provide significant help while writing queries for data verification
+	2. DB Schema of Source, Target - should be kept to verify any detail in mapping sheets at any moment
+- Examples of test scenarios and test cases:
+	TEST SCENARIO  							TEST CASES
+	1. data consistency issues				misuse of integrity constraints
+	2. completeness issues					ensure that all expected data is loaded into target table and check for rejected records
+	3. correctness issues					data that is misspelled or inaccurately recorded
+	4. data quality							number check to check the number and validate it or date check, precision check, data check or null check
+	5. null validate 						verify the null values, where "Not Null" specified for a specific column
+	6. data cleanness						unnecessary columns should be deleted before loading into staging area
+- Types of ETL bugs:
+	1. User interface bugs/cosmetic bugs - related to the GUI of application regarding font style, font size, colors, etc.
+	2. Boundary Value Analysis related bug - regarding minimum and maximum values
+	3. Equivalence Class Partitioning related bug - regarding valid and invalid type
+	4. Input/Output bugs - where valid values are not accepted but invalid values are accepted
+	5. Calculation bugs - mathematical errors and final output is wrong
+	6. Load condition bugs - does not allow multiple users or customer expected loaded
+	7. Race Condition bugs - system crash and hang or system cannot run client platforms
+	8. Version control bugs - no logo matching or no bersion information available
+	9. H/W bugs - device isn't responding to the application
+	10.Help Source bugs - mistakes in help documents
+- Difference between ETL and Database Testing:
+	1. while ETL and database testing both involve data validation, ETL testing is usually performed on data in one data warehouse whereas database testing is performed on transactional systems.
+	2. ETL testing is performed for data extraction, transformation and loading for BI(business intelligence) reporting while Database testing is to validate and integrate the data
+	3. ETL testing is used for information and analytical reporting while database testing is used to integrate the data from multiple applications
+	4. ETL testing is applied to OLAP systems while database testing is used in OLTP systems
+- How to perform ETL testing performance:
+	1. Find the load which transformed in production
+	2. New data will be created of the same load or move it from production data to a local server
+	3. Disable the ETL until the required code is generated
+	4. Count the needed data from the database table
+	5. Note down the last run of ETL and enable the ETL. It will get enough stress to transform the entire load which has created and run it
+	6. After the completion of ETL, count the created data
+	- the total time taken to transform the load should be found out along with the performance that has been improved and dropped. Also check if the entire expected load is extracted and transferred
+- Steps to perfrom data accuracy:
+	1. Value Comparison - compare the data source and target system with minimum or no transformation 
+	2. Check the columns of critical data - this can be done by comparing the distinct values in the source and the target system
+- Steps to perform ETL testing for data transformation:
+	1. create a scenario for input data and the expected results. Now validate ETL testing with the business customer. 
+	2. create the test data according to the scenario. ETL developer will automate the entire process of populating the datasets with the scenario spreadsheet permit versatility and mobility for the reason that the situation is changed
+	3. utilize the data profiling and the results will compare the range and submission of vaues in each field between the source and the target data.
+	4. validate the accurate processing of ETL generated fields. 
+	5. validate the data types within the warehouse that are the same as specified in the data model or design
+	6. scenarios of data will be created between tables which test the referencial integrity
+	7. we will validate the parent to child relationship in the data
+	8. perform lookup transformation. Lookup query should be straight without any data gathering and expected to return only one value per the source table.
+- Advantages of ETL testing:
+	1. ETL can be able to load different types of the goal at the same time
+	2. ETL can perform any data transformation according to the business
+	3. ETL can load the data from heterogeneous sources to a single generalized\different target at the same time
+- Disadvantages of ETL testing:
+	1. When we need a fast response, it is not ideal for real-time or on-demand access
+	2. ETL testing will take months to put on any place
+	3. It is challenging to keep the data in the changing requirement
